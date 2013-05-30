@@ -1,0 +1,28 @@
+{
+    "name": "Net Scraper",
+    "version": "0.0.1",
+    "description": "Scrapes Network Requests and persists to local storage to retrieve in pages",
+    "permissions": [
+        "tabs",
+        "storage",
+        "webRequest",
+        "*://*/*"],
+        "background": {
+            "scripts": ["background.js"] 
+        },
+        "options_page": "options.html",
+        "content_scripts": [
+            {
+            "matches": ["*://*/*"],
+            "js": ["timer_content.js"]
+        }],
+        "browser_action": {
+            "default_title": "NetScraper",
+            "default_icon": "netscraper.png",
+            "default_popup": "options.html"
+        },
+        "icons": { "16": "netscraper_16.png",
+           "48": "netscraper_48.png",
+          "128": "netscraper.png" },
+        "manifest_version": 2
+}
