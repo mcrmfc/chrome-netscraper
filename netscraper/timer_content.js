@@ -1,6 +1,9 @@
 chrome.storage.onChanged.addListener(function(changes) {
     chrome.storage.local.get("selector", function(obj) {
         var selector = obj['selector'];
+        if (!selector) {
+            selector = '#requestlog';
+        }
         chrome.storage.local.get("filter", function(obj) {
             var filter = obj['filter'];
             var requestURL = changes[window.location.href]['newValue'];

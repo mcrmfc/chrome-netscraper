@@ -11,5 +11,5 @@ function report(callingTabUrl, urlRequested) {
     chrome.storage.local.set(obj);
 }
 
-chrome.webRequest.onCompleted.addListener(
-    function(details) {logNetRequest(details);}, {urls: ["*://*/*"]}, ['responseHeaders']);
+chrome.webRequest.onBeforeRequest.addListener(
+    function(details) {logNetRequest(details);}, {urls: ["*://*/*"]}, ['requestBody']);
